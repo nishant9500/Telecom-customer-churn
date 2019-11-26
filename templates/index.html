@@ -29,12 +29,13 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 0%, 
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
+	    <input type="text" name="const" placeholder="const" required="required" />
+		<br>
     	<input type="text" name="PLAN_COST" placeholder="PLAN_COST" required="required" />
 		<br>
         <input type="text" name="TOTAL_PLAN_QTY" placeholder="TOTAL_PLAN_QTY" required="required" />
 		<br>
-		<input type="text" name="const" placeholder="const" required="required" />
-		<br>
+		
 		<input type="text" name="TOTAL_PLAN_AMOUNT" placeholder="TOTAL_PLAN_AMOUNT" required="required" />
 		<br>
 		<input type="text" name="VOICE_CNT" placeholder="VOICE_CNT" required="required" />
