@@ -8,18 +8,46 @@
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-  
+ 
+      <style>
+         #multibackground {
+
+background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 0%, rgba(252,176,69,1) 82%);
+            background-position: left top, left top;
+            background-repeat: no-repeat, repeat;
+            padding: 75px;
+         }
+      </style>
+
 </head>
 
 <body>
+<div id = "multibackground">
  <div class="login">
 	<h1>Predict Churn Count</h1>
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="experience" placeholder="Experience" required="required" />
-        <input type="text" name="test_score" placeholder="Test Score" required="required" />
-		<input type="text" name="interview_score" placeholder="Interview Score" required="required" />
+    	<input type="text" name="PLAN_COST" placeholder="PLAN_COST" required="required" />
+		<br>
+        <input type="text" name="TOTAL_PLAN_QTY" placeholder="TOTAL_PLAN_QTY" required="required" />
+		<br>
+		<input type="text" name="test_score" placeholder="Test Score" required="required" />
+		<br>
+		<input type="text" name="TOTAL_PLAN_AMOUNT" placeholder="TOTAL_PLAN_AMOUNT" required="required" />
+		<br>
+		<input type="text" name="VOICE_CNT" placeholder="VOICE_CNT" required="required" />
+		<br>
+		<input type="text" name="VOICE_MINUTES_LOCAL" placeholder="VOICE_MINUTES_LOCAL" required="required" />
+		<br>
+		<input type="text" name="SMS_CNT" placeholder="SMS_CNT" required="required" />
+		<br>
+		<input type="text" name="TOTALOCTETSUNIT1" placeholder="TOTALOCTETSUNIT1" required="required" />
+		<br>
+		<input type="text" name="UNITS_MONEY" placeholder="UNITS_MONEY" required="required" />
+		<br>
+		
 
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
@@ -28,6 +56,7 @@
    <br>
    {{ prediction_text }}
 
+ </div>
  </div>
 
 
