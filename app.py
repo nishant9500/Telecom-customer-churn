@@ -20,14 +20,14 @@ def predict():
     '''
     #int_features = [int(x) for x in request.form.values()]
     #final_features = [np.array(int_features)]
-    payload = request.get_json()
-    obs = pd.DataFrame([payload], columns=columns).astype(dtypes)
+    payload = request.files['fileupload']
+    #obs = pd.DataFrame([payload], columns=columns).astype(dtypes)
     #proba = pipeline.predict_proba(obs)[0, 1]
-    prediction = model.predict(obs)
+    #prediction = model.predict(obs)
 
-    output = round(prediction[0], 2)
+    #output = round(prediction[0], 2)
 
-    return render_template('index.html', prediction_text='Count of customer churns should be $ {}'.format(output))
+    return render_template('index.html', prediction_text='Count of customer churns should be $ {}'.format(payload.isnull().sum().values.sum()))
 
 
 if __name__ == "__main__":
