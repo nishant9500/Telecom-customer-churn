@@ -18,7 +18,17 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 0%, 
             background-repeat: no-repeat, repeat;
             padding: 75px;
          }
-      </style>
+      form {
+    margin: auto;
+    width: 35%;
+}
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+	  </style>
+	  
 
 </head>
 
@@ -29,13 +39,12 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 0%, 
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-	    <input type="text" name="const" placeholder="const" required="required" />
-		<br>
-    	<input type="text" name="PLAN_COST" placeholder="PLAN_COST" required="required" />
+    	<!--<input type="text" name="PLAN_COST" placeholder="PLAN_COST" required="required" />
 		<br>
         <input type="text" name="TOTAL_PLAN_QTY" placeholder="TOTAL_PLAN_QTY" required="required" />
 		<br>
-		
+		<input type="text" name="test_score" placeholder="Test Score" required="required" />
+		<br>
 		<input type="text" name="TOTAL_PLAN_AMOUNT" placeholder="TOTAL_PLAN_AMOUNT" required="required" />
 		<br>
 		<input type="text" name="VOICE_CNT" placeholder="VOICE_CNT" required="required" />
@@ -46,16 +55,23 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 0%, 
 		<br>
 		<input type="text" name="TOTALOCTETSUNIT1" placeholder="TOTALOCTETSUNIT1" required="required" />
 		<br>
-		<input type="text" name="UNITS_MONEY" placeholder="UNITS_MONEY" required="required" />
+		<input type="text" name="UNITS_MONEY" placeholder="UNITS_MONEY" required="required" />-->
 		<br>
+		<input id="fileSelect" type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
 		
 
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
 
    <br>
-   <br>
-   {{ prediction_text }}
+   <br><div class="result" align="center">
+    {% if result %}
+        
+        <br> Predicted number of Churns for customer:
+           <p style="font-size:50px">{{ prediction_text }}</p>
+    {% endif %}
+</div>
+  
 
  </div>
  </div>
